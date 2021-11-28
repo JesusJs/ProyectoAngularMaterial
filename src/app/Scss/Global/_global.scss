@@ -1,0 +1,503 @@
+@import 'Mixin/_mixin.scss';
+@import 'Global/_variables.scss';
+
+
+
+body, * {
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-base;
+
+}
+
+  h1, h2, h3, h4, h5, h6, p, span, i, button, div, section, a, article, input, textarea {
+      font-family: $font-family-sans-serif;
+      line-height: $line-height-base;
+  }
+
+
+
+
+.custom-btn{
+  @include btn-kairos();
+  }
+
+  //Status
+  .custom-status {
+      @include custom-status-kairos();
+  }
+  //Btn floating
+  .custom-floating-action {
+      @include btn-kairos-floating();
+  }
+  //Sidebar
+  .custom-sidenav {
+      @include sidebar-kairos();
+  }
+  //Sidecard
+  .custom-sidecard {
+      @include custom-sidecard-kairos();
+  }
+
+
+  //navbar
+  .custom-contentheader {
+      @include navbar-kairos();
+  }
+  //wrapper
+  .custom-content-wrapper-before {
+      @include content-wrapper-kairos();
+  }
+
+  //Toast
+
+  .toast-1 {
+    position: relative;
+    padding: 0.2rem 1.5rem;;
+    margin-bottom: 0.8rem;
+    border: none;
+    @include radius($border-top-left:0.25rem, $border-top-right: 0.25rem, $border-bottom-left: 0.25rem, $border-bottom-right: 0.25rem);
+    background: $grey-5;
+    color: $grey-55;
+    box-sizing: border-box;
+    @include box-shadow($top: 0px, $left: 2px, $blur: 4px, $color: rgba(0,0,0,.2), $inset: "");
+    font-weight: 700;
+    font-size: .9rem;
+    word-break: break-word;
+
+
+
+    p{
+      margin-top: 9px;
+    }
+
+
+    &::before {
+        width: .275rem;
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: $grey-50;
+        content: '';
+        @include radius($border-top-left:0.25rem, $border-top-right: 0, $border-bottom-left: 0.25rem, $border-bottom-right: 0);
+    }
+
+    &::after {
+
+      position: absolute;
+    }
+
+
+    frist {
+        background: red;
+    }
+
+
+    &.primary {
+        background: $grey-5;
+
+        &::before {
+            background: $primary;
+        }
+
+        &::after {
+            color: $primary;
+        }
+
+        > i {
+            border-color: $primary;
+            color: $primary;
+        }
+    }
+
+    &.secondary {
+        background: $grey-5;
+
+        &::before {
+            background: $blue;
+        }
+
+        &::after {
+            color: $blue;
+        }
+
+        > i {
+            border-color: $blue;
+            color: $blue;
+        }
+    }
+
+
+    &.succes {
+        background: $grey-5;
+
+        &::before {
+            background: $green;
+        }
+
+        &::after {
+            color: $green;
+        }
+
+        > i {
+            border-color: $green;
+            color: $green;
+        }
+    }
+
+    &.error {
+        background: $grey-5;
+
+        &::before {
+            background: $red;
+        }
+
+        &::after {
+            color: $red;
+        }
+
+        > i {
+            border-color: $red;
+            color: $red;
+        }
+    }
+
+    &.warning {
+        background: $grey-5;
+
+
+        &::before {
+            background: $yellow;
+        }
+
+        &::after {
+            color: $yellow;
+        }
+    }
+
+    &.danger {
+
+        &::before {
+            background: $red;
+        }
+
+        &::after {
+            color: $red;
+        }
+
+        > i {
+            border-color: $red;
+            color: $red;
+        }
+    }
+}
+
+
+
+//Breacumbs
+
+.row{
+  .container{
+    .content-wrapper-before{
+
+      position: absolute;
+      z-index: -1;
+      top: 64px;
+      left: 0;
+      width: 100%;
+      height: 185px;
+      -webkit-transition: .3s ease all;
+      transition: .3s ease all;
+
+        }
+        #breadcrumbs-wrapper {
+          padding: 29px 0;
+          background: transparent;
+          .container{
+            .row{
+              .col{
+                .breadcrumbs{
+                  li{
+                    display: inline-block;
+                  }
+                }
+              }
+            }
+          }
+      }
+
+  }
+}
+
+
+
+
+
+
+  //cards
+  .card {
+
+      @include radius();
+
+      .card-panel {
+          @include radius();
+      }
+  }
+
+  .custom-card {
+      @include card-kairos();
+  }
+  //Data-table
+
+  .custom-cotent-dataTable {
+      @include custom-datacontent-kairos();
+
+      .custom-datatable {
+          @include custom-datatable-kairos();
+      }
+  }
+
+  .custom-data-system {
+      @include custom-system-data-kairos();
+  }
+  //tabs
+  .custom-tabs {
+      width: 99% !important;
+      @include tabs-kairos();
+  }
+
+  input.custom-input {
+      @include input-close-kairos();
+  }
+
+  input.custom-inputf {
+      @include input-open-kairos();
+  }
+
+  textarea.custom-textarea {
+      @include textarea-kairos();
+  }
+
+  //Btns
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+      -webkit-appearance: button;
+  }
+
+  button:not(:disabled),
+  [type="button"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  [type="submit"]:not(:disabled) {
+      cursor: pointer;
+  }
+
+  button::-moz-focus-inner,
+  [type="button"]::-moz-focus-inner,
+  [type="reset"]::-moz-focus-inner,
+  [type="submit"]::-moz-focus-inner {
+      padding: 0;
+      border-style: none;
+  }
+
+
+  .bg-primary {
+      background: $primary;
+
+      &:hover {
+          background: $primary;
+      }
+  }
+
+  .bg-red {
+      background: $red;
+
+      &:hover {
+          background: $red;
+      }
+  }
+
+  .bg-secundary {
+      background: $blue;
+
+      &:hover {
+          background: $blue;
+      }
+  }
+
+
+  .custom-btn {
+      @include btn-kairos();
+  }
+
+  .custom-btnic {
+      @include btnic-kairos();
+  }
+  //Alert
+  .custom-alert {
+      @include alert-kairos();
+  }
+
+  //Checkbox And Switch
+  .custom-swicth {
+      @include switch-kairos();
+  }
+
+
+  .custom-swich-green {
+      @include switch-kairos-green();
+  }
+
+
+
+  .custom-swich-red {
+      @include switch-kairos-red();
+  }
+
+
+
+  .custom-checkbox {
+      @include checkbox-kairos();
+  }
+
+
+  .custom-checkbox-green {
+      @include checkbox-kairos-green();
+  }
+
+  .custom-checkbox-red {
+      @include checkbox-kairos-red();
+  }
+
+  .custom-radio {
+      @include radio-kairos();
+  }
+
+  .custom-radio-green {
+      @include radio-kairos-green();
+  }
+
+  .custom-radio-red {
+      @include radio-kairos-red();
+  }
+  //Selects
+  .custom-select {
+      @include select-kairos();
+  }
+
+  .custom-image-card {
+      @include card-image-kairos();
+  }
+
+
+  .modal{
+    position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1055;
+      display: none;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      outline: 0;
+
+      .modal-dialog{
+        width: 55%;
+        max-width: none;
+        .modal-content{
+          padding: 10px;
+          .modal-header{
+
+            color: $grey-40;
+            border-bottom: none;
+            .modal-title{
+              font-size: 1.64rem;
+              line-height: 110%;
+              margin: .82rem 0 .656rem 0;
+              font-weight: 300;
+            }
+
+            }
+            .modal-body{
+
+             p{
+                color: #8F8F8F !important;
+                font-weight: 300;
+             }
+          }
+          .modal-footer{
+            padding: 0px;
+            button{
+              color: #ff6900;
+
+              font-size: 1rem;
+              outline: 0;
+              font-weight: 300;
+            }
+          }
+        }
+      }
+  }
+
+
+  div.floating-action-menu {
+    > .action-menu {
+      visibility: hidden;
+      transform: translateY(65px);
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 300ms linear;
+    }
+
+    &.active {
+      > .action-menu {
+        visibility: visible;
+        transform: translate(0);
+        opacity: 1;
+        padding-bottom: 5px;
+        max-height: 1000px;
+      }
+
+      > .action-menu {
+        .btn-floating, .badge {
+          transform: scale(1);
+        }
+      }
+
+      > .action-button > .btn-floating {
+        background-color: #dc3545;
+        border-color: #dc3545;
+
+        &:hover {
+          background-color: #c82333;
+          border-color: #bd2130;
+        }
+      }
+
+      > .action-button > .btn-floating > i {
+        transform: rotate(-315deg);
+      }
+    }
+
+    > .action-menu {
+      > .floating-action {
+        padding-right: 0.45rem;
+      }
+
+      .btn-floating, .badge {
+        transform: scale(0.4);
+        transition: all 500ms ease-in-out;
+      }
+    }
+
+    > .action-button > .btn-floating {
+      transition: all 500ms linear;
+    }
+
+    > .action-button > .btn-floating > i {
+      transition: transform 500ms ease-in-out;
+    }
+  }

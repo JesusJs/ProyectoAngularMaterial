@@ -1,0 +1,46 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav container" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="'side'">
+        <mat-toolbar>
+            <mat-toolbar-row class="row justify-content-between pr-0 sidenav-user-container">
+                <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+                    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+                </button>
+                <div class="sidenav-user">
+                    Angular Components
+                </div>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-nav-list>
+            <mat-divider></mat-divider>
+            <a mat-list-item routerLink="/form-fields" routerLinkActive="active">Form Fields</a>
+            <a mat-list-item routerLink="/buttons" routerLinkActive="active">Buttons</a>
+            <a mat-list-item routerLink="/checkbox" routerLinkActive="active">Checkbox & Radio Button</a>
+            <a mat-list-item routerLink="/progress-spinner" routerLinkActive="active">Progress Spinner</a>
+            <a mat-list-item routerLink="/snackbar" routerLinkActive="active">Snackbar</a>
+            <mat-divider></mat-divider>
+            <a mat-list-item routerLink="/table" routerLinkActive="active">Table</a>
+            <a mat-list-item routerLink="/dialog" routerLinkActive="active">Dialog</a>
+            <a mat-list-item routerLink="/tabs" routerLinkActive="active">Tabs</a>
+            <a mat-list-item routerLink="/chips" routerLinkActive="active">Chips</a>
+            <mat-divider></mat-divider>
+            <a mat-list-item routerLink="/steper" routerLinkActive="active">Steper</a>            
+            <a mat-list-item routerLink="/tree" routerLinkActive="active">Tree</a>
+            <a mat-list-item routerLink="/list" routerLinkActive="active">List</a>
+            <a mat-list-item routerLink="/expansion-panel" routerLinkActive="active">Expansion Panel</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary" class="row justify-content-between pr-0">
+            <div class="col-9 toolbar-row">
+                <button type="button d-inline-block" mat-icon-button (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <h1 class="text-left d-inline-block mat-title">Angular Components</h1>
+            </div>
+            <span class="col-3 pr-0 text-end user-menu-button">
+                
+            </span>
+        </mat-toolbar>
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>
